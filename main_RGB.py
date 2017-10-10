@@ -20,7 +20,7 @@ def main():
         bm_x, bm_y = my_sofm.train(sample)
         step += 1
 
-        if (step > 50):
+        if (step > 100):
             step = 0
             weights = my_sofm.get_weights()
             for it_x in range(size):

@@ -3,7 +3,7 @@
 import numpy as np
 
 class SOFM:
-    """doc"""
+    """Very basic implementation of an Self Organizing Feature Map"""
     def __init__(self, dim=3, m=100, n=100, learnrate=1.0, deltalr=0.9999, sigma=0.75):
         """doc"""
         self._weights = np.random.rand(m, n, dim)
@@ -54,8 +54,8 @@ class SOFM:
         
         delta_matrix = inputvector - self._weights
         
-        x1 = self.gaussian(np.linspace(0, 1, self._m), bm_x/self._m, self._sigma)
-        x2 = self.gaussian(np.linspace(0, 1, self._n), bm_y/self._n, self._sigma)
+        x1 = self.gaussian(np.linspace(0, 1, self._m), bm_x/(self._m - 1), self._sigma)
+        x2 = self.gaussian(np.linspace(0, 1, self._n), bm_y/(self._n - 1), self._sigma)
 
         lis = []
         for i in range(self._weights.shape[2]):
