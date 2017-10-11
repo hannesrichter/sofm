@@ -17,7 +17,7 @@ def main():
     step = 0
     while 1==1:
         sample = np.random.rand(3)
-        bm_x, bm_y = my_sofm.train(sample)
+        bm_x, bm_y, _ = my_sofm.train(sample)
         step += 1
 
         if (step > 100):
