@@ -73,7 +73,7 @@ class KOHONENRING:
 
 class SOFM:
     """Very basic implementation of an Self Organizing Feature Map"""
-    def __init__(self, dim=3, m=100, n=100, learnrate=1.0, deltalr=0.9999, sigma=0.75):
+    def __init__(self, dim=3, m=100, n=100, learnrate=1.0, deltalr=0.9999, sigma=0.75, deltasigma=1.0):
         """doc"""
         self._weights = np.random.rand(m, n, dim)
         self._m = m
@@ -81,6 +81,7 @@ class SOFM:
         self._lr = learnrate
         self._delta_lr = deltalr
         self._sigma = sigma
+        self._delta_sigma = deltasigma
 
         if self._weights.shape[2] == 2:
             for it_x in range(m):
@@ -139,4 +140,5 @@ class SOFM:
         self._weights += delta_weight
 
         self._lr *= self._delta_lr
+        self._sigma *= self._delta_sigma
         return bm_x, bm_y, delta_weight
