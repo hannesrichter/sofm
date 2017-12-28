@@ -9,9 +9,11 @@ from random import choice
 from sofm import SOFM
 from animals import features, animals
 
+# used for video output
+#from cv2 import VideoWriter, VideoWriter_fourcc
 
-WIDTH = 9
-HEIGHT = 9
+WIDTH = 11
+HEIGHT = 11
 DIM = 85
 SCALE = 100
 LINETHICKNESS = 100
@@ -38,6 +40,10 @@ def main():
     for i, n in enumerate(animals):
         train_set[n] = features[i]
         surf_set[n] = myfont.render(n, False, (0, 0, 0))
+
+    # video output
+    #fourcc = VideoWriter_fourcc(*"XVID")
+    #vid = VideoWriter('output path here', fourcc, 30, (WIDTH * SCALE, HEIGHT *SCALE), True)
 
     # do for ever....
     while 1==1:
@@ -82,6 +88,15 @@ def main():
 
         # show all the changes on the screen
         pg.display.update()
+
+        #write the video
+        #surf = pg.display.get_surface()
+        #surf.lock()
+        #arr = pg.surfarray.array3d(surf)
+        #surf.unlock()
+        #arr = np.swapaxes(arr, 1, 0)
+        #vid.write(arr)
+
 
         # uncomment this to slow down the visualisation 
         #clock.tick(30)
